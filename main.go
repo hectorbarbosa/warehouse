@@ -130,23 +130,6 @@ func getShelvesID(shelves map[int32]int32) string {
 	return s
 }
 
-func getAddShelvesID(shelves map[int32][]int32) string {
-	var s string
-	for _, productID := range shelves {
-		for _, shelfID := range productID {
-			if len(s) == 0 {
-				s += strconv.Itoa(int(shelfID))
-			} else {
-				substr := strconv.Itoa(int(shelfID))
-				if strings.Contains(s, substr) == false {
-					s += "," + substr
-				}
-			}
-		}
-	}
-	return s
-}
-
 func getProductsID(invoiceShortRows []*database.InvoiceShort) string {
 	var p string
 	for _, v := range invoiceShortRows {

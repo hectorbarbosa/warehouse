@@ -68,6 +68,7 @@ func GetInvoiceRows(db *sql.DB, orders string) ([]*InvoiceShort, error) {
 	return invoice, nil
 }
 
+// функция возвращает названия товаров
 func GetProductNames(db *sql.DB, productIDs string) (map[int32]string, error) {
 	var productNames = make(map[int32]string)
 	query := fmt.Sprintf(`
